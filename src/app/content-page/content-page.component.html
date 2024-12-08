@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <mat-card appearance="outlined" class="header-outer">
+        <mat-card-content class="header">
+            <h2 class="title">Contents</h2>
+            <mat-card-actions>
+                <button mat-button (click)="goBack()">Back to Modules</button>
+                <button mat-raised-button color="primary" (click)="addContent()" *ngIf="instructor === null || username === instructor">Add
+                    Content</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="content-list">
+        <mat-card class="content-card" *ngFor="let content of contents">
+            <mat-card-header>
+                <mat-card-title>{{ content.filePath.split("_").slice(1).join("_") }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-button color="primary" (click)="openContent(content.contentId)">View</button>
+                <button mat-button color="warn" (click)="deleteContent(content.contentId)"
+                    *ngIf="username === instructor">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

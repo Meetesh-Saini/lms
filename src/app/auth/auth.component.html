@@ -1,0 +1,48 @@
+<mat-card class="auth-card">
+    <mat-tab-group [(selectedIndex)]="selectedTabIndex">
+      <!-- Login Tab -->
+      <mat-tab label="Login">
+        <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm" class="mat-tab-form">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" name="username" [(ngModel)]="loginData.username" required>
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="loginData.password" required>
+          </mat-form-field>
+  
+          <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+        </form>
+      </mat-tab>
+  
+      <!-- Registration Tab -->
+      <mat-tab label="Register">
+        <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm" class="mat-tab-form">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" name="username" [(ngModel)]="registerData.username" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="registerData.password" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" [(ngModel)]="registerData.email" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" name="phone" [(ngModel)]="registerData.phone">
+          </mat-form-field>
+  
+          <button mat-flat-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+  

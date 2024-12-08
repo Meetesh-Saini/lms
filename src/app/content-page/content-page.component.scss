@@ -1,0 +1,32 @@
+.container {
+    padding: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-outer{
+    margin-bottom: 2rem;
+}
+
+.actions {
+    margin-left: 1rem;
+}
+
+.content-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.content-card {
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

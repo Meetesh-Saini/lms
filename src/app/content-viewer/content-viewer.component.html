@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="content" class="content-container">
+    <!-- Content Title -->
+    <mat-card class="content-card">
+        <mat-card-header>
+            <mat-card-title>{{ content.filePath.split("_").slice(1).join("_") }}</mat-card-title>
+        </mat-card-header>
+
+        <!-- Check MIME type and render accordingly -->
+        <mat-card-content *ngIf="isFileValid">
+            <div *ngIf="isImage">
+                <img [src]="fullUrl" alt="File Image" class="content-image" />
+            </div>
+            <div *ngIf="isAudio">
+                <audio [src]="fullUrl" controls class="content-audio">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div *ngIf="isVideo">
+                <video [src]="fullUrl" controls class="content-video">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </mat-card-content>
+
+        <!-- Show download button if file type is not renderable -->
+        <mat-card-content *ngIf="!isFileValid" class="content-download">
+            <p>This file cannot be rendered. You can download it below.</p>
+            <button mat-flat-button color="accent" (click)="downloadFile()">Download</button>
+        </mat-card-content>
+
+        <!-- Back Button -->
+        <mat-card-actions>
+            <button mat-flat-button color="primary" (click)="goBack()">Back</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
