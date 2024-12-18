@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<mat-card class="home-card">
+    <mat-card-header>
+        <mat-card-title>Welcome to the Learning Management System</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <h2>Hello {{ username }}!</h2>
+        <p>Start your learning journey with our amazing courses.</p>
+        <div class="explore-btn-container">
+            <button mat-raised-button color="primary" (click)="exploreCourses()">Explore Courses</button>
+        </div>
+    </mat-card-content>
+
+    <mat-card-footer>
+        <p>Learning made easy, flexible, and interactive!</p>
+    </mat-card-footer>
+</mat-card>

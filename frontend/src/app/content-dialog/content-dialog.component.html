@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add Content</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="contentForm" (ngSubmit)="addContent()">
+        <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+        <input hidden (change)="onFileSelected()" #fileInput type="file" id="file"
+            accept="image/*,video/*,audio/*,application/*" />
+
+        <div *ngIf="selectedFile">
+            <p>Selected File: {{ selectedFile.name }}</p>
+        </div>
+        <div *ngIf="srcResult">
+            <p>File preview:</p>
+            <img *ngIf="isImage" [src]="srcResult" alt="Preview" />
+            <p *ngIf="!isImage">File selected: {{ selectedFile?.name }}</p>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!selectedFile" (click)="addContent()">Save</button>
+</mat-dialog-actions>

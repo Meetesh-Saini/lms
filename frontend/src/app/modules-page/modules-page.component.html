@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <mat-card appearance="outlined" class="header-outer">
+        <mat-card-content class="header">
+            <h2 class="title">Modules</h2>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="addModule()" *ngIf="modules.length === 0 || modules[0]?.course.instructor.username === username">Add
+                    Module
+                </button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="module-list">
+        <mat-card class="module-card" *ngFor="let module of modules">
+            <mat-card-header>
+                <mat-card-title>{{ module.moduleName }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-button color="primary" (click)="openModuleContent(module.moduleId)">View</button>
+                <!-- <button mat-button color="accent" (click)="editModule(module.moduleId)">Edit</button> -->
+                <button mat-button color="warn" (click)="deleteModule(module.moduleId)" *ngIf="module.course.instructor.username === username">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

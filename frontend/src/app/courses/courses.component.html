@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="course-container">
+    <mat-card appearance="outlined" class="header-outer">
+        <mat-card-content class="header">
+            <h2 class="title">All Courses</h2>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="openCourse()">
+                    Add Course
+                </button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="course-list">
+        <mat-card *ngFor="let course of courses" class="course-card">
+            <mat-card-title>{{ course.title }}</mat-card-title>
+            <mat-card-subtitle>Instructor: {{ course.instructor.username }}</mat-card-subtitle>
+            <mat-card-content>
+                <p>{{ course.description }}</p>
+                <p>Category: {{ course.category }}</p>
+                <p>Status: {{ course.status }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button 
+                  mat-button 
+                  [color]="isEnrolled(course.courseId) ? 'warn' : 'primary'" 
+                  (click)="toggleEnrollment(course.courseId)">
+                  {{ isEnrolled(course.courseId) ? 'Unenroll' : 'Enroll' }}
+                </button>
+                <button mat-button color="primary" (click)="goToCourseDetails(course.courseId)" *ngIf="isEnrolled(course.courseId) === true">Details</button>
+                <button mat-button color="accent" *ngIf="course.instructor.username === username"
+                    (click)="openCourse(course)">Edit</button>
+                <button mat-button color="warn" *ngIf="course.instructor.username === username"
+                    (click)="deleteCourse(course.courseId)">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

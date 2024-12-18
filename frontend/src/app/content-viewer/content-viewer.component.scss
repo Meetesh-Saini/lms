@@ -1,0 +1,37 @@
+.content-container {
+    margin: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-card {
+    margin-bottom: 20px;
+}
+
+.content-image {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.content-video,
+.content-audio {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.content-download {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+}

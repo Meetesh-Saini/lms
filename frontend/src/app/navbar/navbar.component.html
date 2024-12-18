@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <span class="title">LMS</span>
+
+    <span class="spacer"></span>
+
+    <button mat-button [routerLink]="['/home']">Home</button>
+    <button mat-button [routerLink]="['/courses']">Courses</button>
+
+    <!-- Conditionally show Login or Logout button -->
+    <button mat-button (click)="toggleLoginLogout()">
+        {{ isLoggedIn ? 'Logout' : 'Login' }}
+    </button>
+</mat-toolbar>
