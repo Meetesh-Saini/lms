@@ -22,4 +22,4 @@ ng build
 ## Run the application for development
 ```bash
 ./run.sh
-``
+```
